@@ -71,6 +71,13 @@ const inputChange = (name, value) => {
   })
 }
 
+useEffect(() => {
+  schema.isValid(formValues)
+  .then((valid) => {
+    setDisabled(!valid)
+  })
+}, [formValues])
+
 const submitForm = () =>{
   const newUser = {
     name: formValues.name.trim(),
